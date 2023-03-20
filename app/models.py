@@ -13,6 +13,7 @@ class Project(models.Model):
     image3 = ImageField(blank=True,null=True, manual_crop="")
     methodologyTitle = models.CharField(max_length=200, unique=True)
     methodology = models.TextField(max_length=4000)
+    about = models.TextField(max_length=4000, default="")
     location = models.CharField(max_length=200, unique=True)
     tag = models.CharField(max_length=200, unique=True)
     youtube_Video = EmbedVideoField()
