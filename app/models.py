@@ -17,6 +17,7 @@ class Project(models.Model):
     location = models.CharField(max_length=200, unique=True)
     tag = models.CharField(max_length=200, unique=True)
     youtube_Video = EmbedVideoField()
+    webLink = models.URLField(max_length = 200, default="")
     
     class Meta:
         ordering = ('name',)
