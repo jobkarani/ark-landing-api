@@ -17,6 +17,7 @@ class Project(models.Model):
     location = models.CharField(max_length=200)
     verifier = models.CharField(max_length=200, default="")
     tag = models.CharField(max_length=200)
+    themeMethod = models.CharField(max_length=200, default="")
     youtube_Video = EmbedVideoField()
     webLink = models.URLField(max_length = 200, default="")
     

@@ -4,7 +4,7 @@ from .models import *
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'name', 'slug', 'cover', 'image', 'image2', 'image3', 'methodologyTitle','methodology', 'about', 'location', 'verifier', 'tag', 'youtube_Video', 'webLink']
+        fields = ['id', 'name', 'slug', 'cover', 'image', 'image2', 'image3', 'methodologyTitle','methodology', 'about', 'location', 'verifier', 'tag', 'themeMethod', 'youtube_Video', 'webLink']
 
 
 class BlogsSerializer(serializers.ModelSerializer):
