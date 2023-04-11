@@ -20,3 +20,19 @@ class BlogCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = BlogCategory
         fields = ['id', 'name', 'slug', 'blogs']
+
+class OffsetterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Offsetters
+        fields = ['id', 'project_name', 'email', 'phone', 'project_type', 'country', 'more_projects']
+
+    def create(self, validated_data):
+        return Offsetters.objects.create(**validated_data)
+    
+class EmitterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Emitters
+        fields = ['id', 'company_name', 'email', 'phone', 'project_type', 'country', 'more_projects']
+
+    def create(self, validated_data):
+        return Emitters.objects.create(**validated_data)

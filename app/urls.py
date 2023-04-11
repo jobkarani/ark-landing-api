@@ -8,4 +8,6 @@ urlpatterns = [
     path('categoryblogs/<int:blogcategory_id>/', views.getBlogByCategory, name='apiCategoryblogs' ),
     path('project/', views.projects, name='project' ),
     path('projectdetails/<int:product_id>/', views.projectDetails, name='projectDetails' ),
+    path('offsetters/', views.create_offsetter, name='create_offsetter'),
+    path('emitters/', views.create_emitter, name='create_emitter'),
 ]

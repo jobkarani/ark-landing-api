@@ -52,3 +52,32 @@ class Blogs(models.Model):
 
     def __str__(self):
         return self.heading
+
+
+class Offsetters(models.Model):
+    project_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=256, null=True)
+    phone = models.CharField(max_length=100)
+    project_type = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    more_projects = models.TextField(blank=True, null=True)
+
+    def save_offsetter(self):
+        self.save()
+
+    def __str__(self):
+        return self.email
+    
+class Emitters(models.Model):
+    company_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=256, null=True)
+    phone = models.CharField(max_length=100)
+    project_type = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    more_projects = models.TextField(blank=True, null=True)
+
+    def save_emitter(self):
+        self.save()
+
+    def __str__(self):
+        return self.email

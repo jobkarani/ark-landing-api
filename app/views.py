@@ -70,3 +70,21 @@ def getBlogByCategory(request, blogcategory_id):
         blogs = Blogs.objects.filter(blog_category=blogcategory)
         serializer =BlogsSerializer(blogs, many=True)
         return Response(serializer.data)
+
+@api_view(['POST'])
+def create_offsetter(request):
+    if request.method == "POST":
+        serializer = OffsetterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+    
+@api_view(['POST'])
+def create_emitter(request):
+    if request.method == "POST":
+        serializer =EmitterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
