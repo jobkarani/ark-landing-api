@@ -36,3 +36,11 @@ class EmitterSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return Emitters.objects.create(**validated_data)
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = ['id', 'name', 'email', 'phone', 'subject', 'message']
+
+    def create(self, validated_data):
+        return Contact.objects.create(**validated_data)

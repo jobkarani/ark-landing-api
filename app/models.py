@@ -66,7 +66,7 @@ class Offsetters(models.Model):
         self.save()
 
     def __str__(self):
-        return self.email
+        return self.project_name
     
 class Emitters(models.Model):
     company_name = models.CharField(max_length=100)
@@ -80,4 +80,17 @@ class Emitters(models.Model):
         self.save()
 
     def __str__(self):
-        return self.email
+        return self.company_name
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=256, null=True)
+    phone = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    message = models.TextField(blank=True, null=True)
+
+    def save_emitter(self):
+        self.save()
+
+    def __str__(self):
+        return self.name

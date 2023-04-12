@@ -10,4 +10,5 @@ urlpatterns = [
     path('projectdetails/<int:product_id>/', views.projectDetails, name='projectDetails' ),
     path('offsetters/', views.create_offsetter, name='create_offsetter'),
     path('emitters/', views.create_emitter, name='create_emitter'),
+    path('contact/', views.contact, name='contact'),
 ]

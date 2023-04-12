@@ -88,3 +88,12 @@ def create_emitter(request):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
+    
+@api_view(['POST'])
+def contact(request):
+    if request.method == "POST":
+        serializer =ContactSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
