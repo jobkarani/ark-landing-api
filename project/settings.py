@@ -109,12 +109,6 @@ ALLOWED_HOSTS=['ark-landing-be-production.up.railway.app','127.0.0.1', 'https://
 
 CSRF_TRUSTED_ORIGINS = ['https://ark-landing-be-production.up.railway.app']
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    'http://localhost:4200',
-    'https://africarenewables.energy',
-]
-
 UPLOADCARE = {  
     'pub_key': config('pub_key'),
     'secret': config('secret'),
@@ -188,7 +182,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-CORS_ORIGIN_ALLOW_ALL=True
+# CORS_ORIGIN_ALLOW_ALL=True
 
 CORS_ALLOW_HEADERS = [
     "Access-Control-Allow-Origin",
