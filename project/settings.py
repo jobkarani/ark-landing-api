@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -108,6 +108,13 @@ DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS=['ark-landing-be-production.up.railway.app','127.0.0.1', 'https://ark-landing-be-production.up.railway.app/admin','http://localhost:4200']
 
 CSRF_TRUSTED_ORIGINS = ['https://ark-landing-be-production.up.railway.app']
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    'http://localhost:4200',
+    'https://africarenewables.energy',
+    'https://africarenewables.energy/get-started'
+]
 
 UPLOADCARE = {  
     'pub_key': config('pub_key'),
