@@ -15,6 +15,6 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin )
 admin.site.register(BlogCategory, BlogCategoryAdmin)
 admin.site.register(Blogs)
-admin.site.register(Offsetters)
-admin.site.register(Emitters)
+admin.site.register(PlantOwners)
+admin.site.register(Buyers)
 admin.site.register(Contact)

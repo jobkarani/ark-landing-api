@@ -1,8 +1,8 @@
 asgiref==3.5.2
 certifi==2021.10.8
-cffi==1.15.1
 charset-normalizer==2.1.0
 cloudinary==1.30.0
+cffi==1.16.0
 confusable-homoglyphs==3.2.0
 cryptography==37.0.4
 dj-database-url==0.5.0
@@ -17,8 +17,8 @@ django-tinymce==3.4.0
 django-cors-headers==3.13.0
 django-embed-video==1.4.8
 idna==3.4                                                                                                                                                                          
-psycopg2-binary==2.9.5
 pycodestyle==2.7.0
+psycopg2-binary==2.9.9
 pycparser==2.21
 python-decouple==3.5
 pytz==2022.6

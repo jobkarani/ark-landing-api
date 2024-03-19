@@ -6,7 +6,6 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = ['id', 'name', 'slug', 'cover', 'image', 'image2', 'image3', 'methodologyTitle','methodology', 'about', 'location', 'verifier', 'tag', 'themeMethod', 'youtube_Video', 'webLink']
 
-
 class BlogsSerializer(serializers.ModelSerializer):
     category_name = serializers.CharField(source='blog_category.name')
     category_slug = serializers.CharField(source='blog_category.slug')
@@ -21,21 +20,21 @@ class BlogCategorySerializer(serializers.ModelSerializer):
         model = BlogCategory
         fields = ['id', 'name', 'slug', 'blogs']
 
-class OffsetterSerializer(serializers.ModelSerializer):
+class PlantOwnersSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Offsetters
-        fields = ['id', 'project_name', 'email', 'phone', 'project_type', 'country', 'more_projects']
+        model = PlantOwners
+        fields = ['full_name', 'company', 'email', 'project_name', 'phone', 'project_type', 'country']
 
     def create(self, validated_data):
-        return Offsetters.objects.create(**validated_data)
+        return PlantOwners.objects.create(**validated_data)
     
-class EmitterSerializer(serializers.ModelSerializer):
+class Buyerserializer(serializers.ModelSerializer):
     class Meta:
-        model = Emitters
+        model = Buyers
         fields = ['id', 'company_name', 'email', 'phone', 'project_type', 'country', 'more_projects']
 
     def create(self, validated_data):
-        return Emitters.objects.create(**validated_data)
+        return Buyers.objects.create(**validated_data)
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:

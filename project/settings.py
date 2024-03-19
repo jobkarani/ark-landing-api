@@ -95,9 +95,9 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
         'NAME':'railway',
         'USER':'postgres',
-        'PASSWORD':'cdp7p6UpYzDUs0ITMsja',
-        'HOST': 'containers-us-west-123.railway.app',
-        'PORT': '6463',
+        'PASSWORD':'ZIhpxNeYYCokRUTUZjpKhkuqzSrIBphT',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '51016',
     }
 }
 
@@ -105,9 +105,9 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
-ALLOWED_HOSTS=['carbonke-be-production.up.railway.app','127.0.0.1', 'https://carbonke-be-production.up.railway.app/admin','http://localhost:4200']
+ALLOWED_HOSTS=['ark-landing-be-production.up.railway.app','127.0.0.1', 'https://ark-landing-be-production.up.railway.app/admin','http://localhost:4200']
 
-CSRF_TRUSTED_ORIGINS = ['https://carbonke-be-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://ark-landing-be-production.up.railway.app']
 
 UPLOADCARE = {  
     'pub_key': config('pub_key'),

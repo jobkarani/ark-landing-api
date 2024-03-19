@@ -72,18 +72,18 @@ def getBlogByCategory(request, blogcategory_id):
         return Response(serializer.data)
 
 @api_view(['POST'])
-def create_offsetter(request):
+def create_plant_owner(request):
     if request.method == "POST":
-        serializer = OffsetterSerializer(data=request.data)
+        serializer = PlantOwnersSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
     
 @api_view(['POST'])
-def create_emitter(request):
+def create_buyer(request):
     if request.method == "POST":
-        serializer =EmitterSerializer(data=request.data)
+        serializer =Buyerserializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)

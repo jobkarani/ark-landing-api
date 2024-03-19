@@ -53,22 +53,42 @@ class Blogs(models.Model):
     def __str__(self):
         return self.heading
 
+class ProjectTypeManager(models.Manager):
+    def wind_type(self):
+        return super(ProjectTypeManager, self).filter(project_type="wind",is_active=True)
 
-class Offsetters(models.Model):
-    project_name = models.CharField(max_length=100)
+    def solar_type(self):
+        return super(ProjectTypeManager, self).filter(project_type="solar",is_active=True)
+    
+    def hydro_type(self):
+        return super(ProjectTypeManager, self).filter(project_type="hydro",is_active=True)
+    
+    def biomass_type(self):
+        return super(ProjectTypeManager, self).filter(project_type="biomass",is_active=True)
+
+project_type_choice=(
+    ('wind', 'wind'),
+    ('solar', 'solar'),
+    ('hydro', 'hydro'),
+    ('biomass', 'biomass'),
+)
+
+class PlantOwners(models.Model):
+    full_name = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
     email = models.EmailField(max_length=256, null=True)
+    project_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
-    project_type = models.CharField(max_length=100)
+    project_type = models.CharField(max_length=100, choices=project_type_choice)
     country = models.CharField(max_length=100)
-    more_projects = models.TextField(blank=True, null=True)
 
-    def save_offsetter(self):
+    def save_plant_owner(self):
         self.save()
 
     def __str__(self):
-        return self.project_name
+        return self.full_name
     
-class Emitters(models.Model):
+class Buyers(models.Model):
     company_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=256, null=True)
     phone = models.CharField(max_length=100)
