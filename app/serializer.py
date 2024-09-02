@@ -50,16 +50,10 @@ class SolarPlantInputSerializer(serializers.Serializer):
 
     def calculate_annual_revenue(self):
         data = self.validated_data
-        # Assuming the base price of IREC is $3 per I-REC
+        # Assuming the base price of IREC is $3 per MWh
         price_per_irec = 3.0
-        
-        # Calculate annual MWh from monthly MWh
+        # Calculate annual IRECs from monthly MWh
         annual_mwh = data['average_monthly_mwh'] * 12
-        
-        # Calculate the number of I-RECs (1 I-REC = 1000 MWh)
-        annual_irecs = annual_mwh / 1000
-        
-        # Calculate annual revenue from I-RECs
-        annual_revenue = annual_irecs * price_per_irec
-        
+        # Calculate annual revenue
+        annual_revenue = annual_mwh * price_per_irec
         return annual_revenue
