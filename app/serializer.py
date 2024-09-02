@@ -43,3 +43,17 @@ class ContactSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return Contact.objects.create(**validated_data)
+
+class SolarPlantInputSerializer(serializers.Serializer):
+    capacity_mw = serializers.FloatField(min_value=0.0)
+    average_monthly_mwh = serializers.FloatField(min_value=0.0)
+
+    def calculate_annual_revenue(self):
+        data = self.validated_data
+        # Assuming the base price of IREC is $3 per MWh
+        price_per_irec = 3.0
+        # Calculate annual IRECs from monthly MWh
+        annual_mwh = data['average_monthly_mwh'] * 12
+        # Calculate annual revenue
+        annual_revenue = annual_mwh * price_per_irec
+        return annual_revenue

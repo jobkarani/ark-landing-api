@@ -11,4 +11,5 @@ urlpatterns = [
     path('plantOwners/', views.create_plant_owner, name='create_plant_owner'),
     path('buyers/', views.create_buyer, name='create_buyer'),
     path('contact/', views.contact, name='contact'),
+    path('calculate-irec-revenue/', views.IRECCalculatorView.as_view(), name='calculate-irec-revenue'),
 ]

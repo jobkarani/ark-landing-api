@@ -12,6 +12,7 @@ from .serializer import *
 from .pagination import *
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.views import APIView
 
 
 # Create your views here
@@ -97,3 +98,11 @@ def contact(request):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
+    
+class IRECCalculatorView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = SolarPlantInputSerializer(data=request.data)
+        if serializer.is_valid():
+            annual_revenue = serializer.calculate_annual_revenue()
+            return Response({'annual_revenue': annual_revenue}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
